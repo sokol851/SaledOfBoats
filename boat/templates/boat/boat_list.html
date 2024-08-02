@@ -10,9 +10,13 @@
         {% if object.price %}
         <h2 class="card-title pricing-card-title">{{ object.price }}</h2>
         {% else %}
-        <h2 class="card-title pricing-card-title">Не указана</h2>
+        <h2 class="card-title pricing-card-title">
+            <small class="text-muted">
+                Не указана
+            </small>
+        </h2>
         {% endif %}
-        <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+        <a href="{% url 'boat:boat_detail' object.pk %}" type="button" class="w-100 btn btn-lg btn-outline-primary">Открыть</a>
     </div>
 </div>
 {% endfor %}
