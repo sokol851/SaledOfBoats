@@ -1,0 +1,23 @@
+{% extends 'boat/base.html' %}
+
+{% block content %}
+{% for object in object_list %}
+<div class="card col-4">
+    <div class="card-header py-3">
+        <h4 class="my-0 fw-normal">{{ object.name }}</h4>
+    </div>
+    <div class="card-body">
+        {% if object.price %}
+        <h2 class="card-title pricing-card-title">{{ object.price }}</h2>
+        {% else %}
+        <h2 class="card-title pricing-card-title">
+            <small class="text-muted">
+                Не указана
+            </small>
+        </h2>
+        {% endif %}
+        <a href="{% url 'boat:boat_detail' object.pk %}" type="button" class="w-100 btn btn-lg btn-outline-primary">Открыть</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
